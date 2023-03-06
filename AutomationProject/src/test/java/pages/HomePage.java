@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import utilities.TestBase;
 
 public class HomePage extends TestBase {
+
+
 	public HomePage(WebDriver driver)
 	{
 		this.driver=driver;		
@@ -18,11 +20,17 @@ public class HomePage extends TestBase {
 	
 	@FindBy(xpath="//span[text()='New Lead']")
 	public WebElement leadsNewAccount;
-
-	public void navigateToAccounts() {
-
-	}
 	
+	@FindBy(xpath="//span[text()='Accounts']")
+	public WebElement accountHeader;
+	
+	@FindBy(xpath="//span[text()='Contacts']")
+	public WebElement contactsHeader;
+	
+	@FindBy(xpath="//span[text()='Opportunities']")
+	public WebElement OpportuntiesHeader;
+	
+
 	public void clickElementJs(WebElement element) {
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 	    executor.executeScript("arguments[0].click();", element);
@@ -34,12 +42,18 @@ public class HomePage extends TestBase {
 		clickElementJs(leadsNewAccount);
 	}
 
-	public void navigateToContacts() {
-
+	public void navigateToAccounts() throws InterruptedException {
+		Thread.sleep(8000);
+		clickElementJs(accountHeader);
 	}
-
-	public void navigateToOpportunities() {
-
+	
+	public void navigateToContacts() throws InterruptedException {
+		Thread.sleep(8000);
+		clickElementJs(contactsHeader);
+	}
+	public void navigateToOpportunities() throws InterruptedException {
+		
+		clickElementJs(OpportuntiesHeader);
 	}
 
 

@@ -15,19 +15,21 @@ public class TC_CreateAccount extends TestBase{
 	HomePage homePage;
 	@BeforeClass
 	public void launchApp() {
-		startBrowser("Chrome", "https://home-f.my.salesforce.com/");
+		startBrowser("Chrome", "https://home-c4.my.salesforce.com/");
 	}
 
 	@Test (enabled=true, priority = 1, description="Valid Login Scenario with username and password.")
-	public void reateLead () throws InterruptedException  {
+	public void CreateLead () throws InterruptedException  {
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		accountPage = PageFactory.initElements(driver, AccountPage.class);
 		test=report.startTest("Login to Sales force valid");
 		//   HomePage homePage = new HomePage(driver);
 		//  LoginPage loginPage = new LoginPage(driver);
-		loginPage.loginToSalesForce("vishveshwar.vishu-tvqv@force.com","testing@123");
-		homePage.navigateToLeads();
-		accountPage.createTestAccount();
+		loginPage.loginToSalesForce("nareshkommu048-snaw@force.com","Hello@1234");
+		homePage.navigateToContacts();
+		accountPage.createNewAccount();
+		accountPage.fillAccountDetails();
+	
 	}
 }

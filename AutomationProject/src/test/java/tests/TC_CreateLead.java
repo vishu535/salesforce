@@ -14,6 +14,7 @@ public class TC_CreateLead extends TestBase {
 	LoginPage loginPage;
 	LeadPage leadPage;
 	HomePage homePage;
+	ContactPage contactPage;
 	
 	@BeforeClass
 	public void launchApp()
@@ -25,16 +26,18 @@ public class TC_CreateLead extends TestBase {
 	}
    
     @Test (enabled=true, priority = 1, description="Valid Login Scenario with username and password.")
-    public void reateLead () throws InterruptedException  {
+    public void CreateLead () throws InterruptedException  {
     	loginPage = PageFactory.initElements(driver, LoginPage.class);
     	homePage = PageFactory.initElements(driver, HomePage.class);
     	leadPage = PageFactory.initElements(driver, LeadPage.class);
+    	contactPage = PageFactory.initElements(driver, ContactPage.class);
     	test=report.startTest("Login to Sales force valid");
      //   HomePage homePage = new HomePage(driver);
       //  LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginToSalesForce("vishveshwar.vishu-tvqv@force.com","testing@123");
+        loginPage.loginToSalesForce("nareshkommu048-snaw@force.com","Hello@1234");
         homePage.navigateToLeads();
         leadPage.createTestLead();
+        
     }
 
 }

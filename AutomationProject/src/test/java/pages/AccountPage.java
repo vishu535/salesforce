@@ -15,15 +15,53 @@ public class AccountPage extends TestBase {
 		this.driver=driver;	
 	}
     
-    @FindBy(id="Login")
-	public WebElement loginButton;
+    @FindBy(xpath="//div[@title='New']")
+	public WebElement newButton;
 	
-    public void createTestAccount () {
- 
-
+    @FindBy(xpath="//input[@name='Name']")
+    public WebElement accountNameField;
     
+    @FindBy(xpath="(//input[@name='Phone'])[1]")
+    public WebElement PhoneField;
+    
+    @FindBy(xpath="//input[@name='Website']")
+    public WebElement WebsiteField;
+    
+    @FindBy(xpath="//input[@name='NumberOfEmployees']")
+    public WebElement EmployeesField;
+    
+    @FindBy(xpath="(//input[@name='city'])[1]")
+    public WebElement CityField;
+    
+
+    @FindBy(xpath="(//input[@name='country'])[2]")
+    public WebElement CountryField;
+    
+    @FindBy(xpath="//button[@name='SaveEdit']")
+    public WebElement SaveButton;
+    
+    
+    
+    public void createNewAccount () {
+ 
+    	newButton.click();
   
     }
 
+    public void fillAccountDetails() {
+    	
+    	accountNameField.sendKeys("Rakesh");
+    	PhoneField.sendKeys("123456");
+    	WebsiteField.sendKeys("abcd.com");
+    	EmployeesField.sendKeys("15");
+    	CityField.sendKeys("Bangalore");
+    	CountryField.sendKeys("India");
+    	SaveButton.click();
+
+    }
+    
+   
+    
 }
+
 
